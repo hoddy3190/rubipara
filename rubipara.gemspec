@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Rubipara::VERSION
   spec.authors       = ["hodaka"]
   spec.email         = ["altitude3190@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.summary       = "Rubipara is a portmanteau of Ruby and Pripara. Here are all of Pripara everyone loves."
+  spec.description   = "Pripara is an excellent Japanese idol anime. When you approve something, let's say 'Kashikoma!' instead of 'OK'."
+  spec.homepage      = "https://github.com/altitude3190/rubipara"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
