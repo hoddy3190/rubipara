@@ -24,5 +24,15 @@ module Rubipara
       Rubipara::Character.all
     end
 
+    desc 'epiqsode [<num>]', 'List pripara anime episodes. With an option <num>, show the No.<num> episode'
+    def episode(episode_num = nil)
+      if episode_num
+        episode = Rubipara::Episode.new(episode_num)
+        episode.show
+      else
+        Rubipara::Episode.list
+      end
+    end
+
   end
 end
