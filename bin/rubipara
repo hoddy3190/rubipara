@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 
 require 'rubipara'
+Rubipara::CLI.start(ARGV)
