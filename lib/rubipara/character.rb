@@ -1,49 +1,35 @@
 module Rubipara
   class Character
-    attr_reader :profile
 
     @@config = nil
 
-    def self.load_config
-      config_file = "#{File.dirname(__FILE__)}/../../config/character.yml"
-      @@config = YAML.load_file(config_file)
-    end
+    class << self
 
-    def initialize(name = 'lala')
-      @@config = Character.load_config
-      if @@config.has_key?(name)
-        @profile = @@config[name]
+      def load_config
+        config_file = "#{File.dirname(__FILE__)}/../../config/character.yml"
+        @@config = YAML.load_file(config_file)
       end
-    end
 
-    def show_profile
-      if @profile
-        puts "#{@profile['名前']} のプロフィール"
-        @profile.each do |key, value|
-          puts "#{key}\t#{value}"
-        end
-      else
-        puts 'ERROR: No such a character'
-      end
-    end
-
-    def self.list
-      @@config = Character.load_config unless @@config
-      @@config.each_key do |chara|
-        puts "#{chara}"
-      end
-    end
-
-    def self.all
-      @@config = Character.load_config unless @@config
-      @@config.each_value do |profile|
-        profile.each do |key, value|
-          if key == '名前'
-            puts "\n#{value} のプロフィール"
-          end
-          puts "#{key}\t#{value}"
+      def profile(name)
+        load_config unless @@config
+        if @@config.has_key?(name)
+          profile = @@config[name]
+        else
+          raise 'ERROR: No such a character'
         end
       end
+
+      def list
+        load_config unless @@config
+        chara_name_list = []
+        @@config.each_key {|name| chara_name_list.push(name) }
+        chara_name_list
+      end
+
+      def all
+        load_config unless @@config
+      end
+
     end
 
   end
