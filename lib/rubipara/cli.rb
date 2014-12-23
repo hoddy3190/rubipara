@@ -37,10 +37,15 @@ module Rubipara
     desc 'epiqsode [<num>]', 'List pripara anime episodes. With an option <num>, show the No.<num> episode'
     def episode(episode_num = nil)
       if episode_num
-        episode = Rubipara::Episode.new(episode_num)
-        episode.show
+        begin
+          episode = Rubipara::Episode.new episode_num
+          puts "第#{episode.episode_num}話 #{episode.title}"
+        rescue => e
+          puts e.message
+        end
       else
-        Rubipara::Episode.list
+        episode_list = Rubipara::Episode.list
+        episode_list.each {|key, value| puts "第#{key}話\s#{value['title']}" }
       end
     end
 
