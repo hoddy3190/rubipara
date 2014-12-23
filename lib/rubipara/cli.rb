@@ -4,9 +4,10 @@ module Rubipara
   class CLI < Thor
 
     desc 'kashikoma [<word>]', "Let's say 'Kashikoma!' together! With an option <word>, Lala says the word!"
-    def kashikoma(word = nil)
-      aa = Rubipara::AA.new('kashikoma', {:word => word, :max_length => 20})
-      aa.printout
+    def kashikoma(word = 'Kashikoma!')
+      kashikoma = Rubipara::AA.new 'kashikoma', word: word
+      aa = kashikoma.get_aa # return an array whose elements contain each line in AA
+      aa.each {|line| puts line }
     end
 
     desc 'character [<name>]', "Show names of characters. With an option <name>, show the character's profile"

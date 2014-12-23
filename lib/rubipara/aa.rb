@@ -1,30 +1,29 @@
 module Rubipara
   class AA
 
-    def initialize(file_name, options)
+    def initialize(file_name, word: nil, max_length: 20)
       @file_name = file_name
-      @word = options[:word] || 'Kashikoma!'
-      @max_length = options[:max_length] || 20
+      @word = word
+      @max_length = max_length
     end
 
-    def printout
-      begin
-        f = File.open("#{File.dirname(__FILE__)}/../../config/aa/#{@file_name}.txt")
-      rescue => e
-        raise e.message
-      end
+    def get_aa
+      f = File.open("#{File.dirname(__FILE__)}/../../config/aa/#{@file_name}.txt")
+      aa = []
       while line = f.gets
-        if line.include?('#{word}')
-          line.gsub!(/\#\{word\}/, _adjust_word(@word, @max_length))
+        # substitute some words for #{word} in AA if necessary
+        if line.include?('#{word}') && @word
+          line.gsub!(/\#\{word\}/, adjust_word(@word, @max_length))
         end
-        puts line
+        aa.push(line)
       end
       f.close
+      aa
     end
 
     private
 
-    def _adjust_word(word, max_length)
+    def adjust_word word, max_length
       if (word.length > max_length)
         word[0, max_length]
       else
