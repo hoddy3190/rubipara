@@ -1,42 +1,42 @@
 # Rubipara
 
-ポップ ステップ げっちゅー☆
-プリパラの世界へようこそぷり
-Rubipara はプリパラの世界を知るための gem なんだぷり
-Rubipara を使い続けていれば、きっと君のところにもプリチケが届くぷり
+ポップ ステップ げっちゅー☆  
+プリパラの世界へようこそぷり  
+Rubipara はプリパラの世界を知るための gem なんだぷり  
+Rubipara を使い続けていれば、きっと君のところにもプリチケが届くぷり  
 
-まだまだ Rubipara ピカピカけんきゅうせい(v0.0.1)だけど、
+まだまだ Rubipara ピカピカけんきゅうせい(v0.0.1)だけど、  
 これからも応援よろしくぷり♡
 
 ## Installation
 
-以下の行を、君の Gemfile に追記するぷり
+以下の行を、君の Gemfile に追記するぷり  
 Add this line to your application's Gemfile:
 
 ```ruby
 gem 'rubipara'
 ```
 
-できたら、以下のコマンドを実行するぷり
+できたら、以下のコマンドを実行するぷり  
 And then execute:
 
 ```
 $ bundle
 ```
 
-それか、以下のコマンドを実行してもインストールできるぷりよ
+それか、以下のコマンドを実行してもインストールできるぷりよ  
 Or install it yourself as:
 
 ```
 $ gem install rubipara
 ```
 
-さあ、ここまでできたらコマンドラインで rubipara と打ってみるぷり
+さあ、ここまでできたらコマンドラインで rubipara と打ってみるぷり  
 コマンドのヘルプがでたら、計算どおりぷり
 
 ## Usage
 
-Rubipara は CLI で機能を提供しているぷり
+Rubipara は CLI で機能を提供しているぷり  
 こんな使い方ができるから、よーく勉強しておくぷり
 
 
