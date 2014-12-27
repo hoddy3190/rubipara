@@ -43,12 +43,12 @@ Rubipara は CLI で機能を提供しているぷり
 ##### キャラクターを一覧で表示させるぷり
 ```
 $ rubipara character
-#=> lala
-#=> mirei
-#=> sophie
-#=> shion
-#=> dorothy
-#=> leona
+#=> lala    : 真中らぁら
+#=> mirei   : 南みれぃ
+#=> sophie  : 北条そふぃ
+#=> shion   : 東堂シオン
+#=> dorothy : ドロシー・ウェスト
+#=> leona   : レオナ・ウェスト
 ```
 
 ##### キャラクターのプロフィールを表示させるぷり
