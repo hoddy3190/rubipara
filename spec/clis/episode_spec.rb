@@ -2,16 +2,15 @@ require 'spec_helper'
 
 describe Rubipara::Episode do
 
+  let(:episodes) { Rubipara::Episode.all }
+
   describe '.new' do
     context 'when the arg is an episode number which has been already broadcast' do
-      episode = Rubipara::Episode.new 2
-      it 'should initialize with its arg' do
-        expect(episode.episode_num).to be === 2
-      end
+      it { expect(Rubipara::Episode.new(2).title).to eq('約束やぶっちゃダメぷりっ') }
     end
     context 'with invalid args' do
-      it 'should throw an exception of RuntimeError' do
-        expect{Rubipara::Episode.new 'invalid'}.to raise_error(RuntimeError, 'ERROR: No such an episode')
+      it 'should throw an exception of Rubipara::Episode::NotFoundError' do
+        expect{Rubipara::Episode.new 'invalid'}.to raise_error(Rubipara::Episode::NotFoundError, 'ERROR: No such an episode')
       end
     end
     context 'with no args' do
@@ -21,11 +20,13 @@ describe Rubipara::Episode do
     end
   end
 
-  describe '.load_config' do
-    context 'when config is loaded' do
-      config = Rubipara::Episode.load_config
-      it 'should have some text of YAML format' do
-        expect(config.length).to be > 0
+  describe '.all' do
+    context 'when it is called' do
+      before { episodes = Rubipara::Episode.all }
+      it { expect(episodes.instance_of?(Array)).to be true }
+      it { expect(episodes.length).to be > 0 }
+      it 'should return an array composed of episode objects' do
+        expect(episodes[0].instance_of?(Rubipara::Episode)).to be true
       end
     end
   end
