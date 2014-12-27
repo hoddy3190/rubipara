@@ -1,42 +1,41 @@
 lala:
-  名前: 真中らぁら
-  声優: 茜屋日海夏
-  誕生日: 11月20日
-  学年: 小学5年生
-  チーム: SoLaMi SMILE
-  口癖: かしこま！
+  name: 真中らぁら
+  cv: 茜屋日海夏
+  grade: 小学5年生
+  team: SoLaMi SMILE
+  fav_phrase: かしこま！
 
 mirei:
-  名前: 南みれぃ
-  声優: 芹澤優
-  学年: 中学1年生
-  チーム: SoLaMi SMILE
-  口癖: 計算どおり
+  name: 南みれぃ
+  cv: 芹澤優
+  grade: 中学1年生
+  team: SoLaMi SMILE
+  fav_phrase: 計算どおり
 
 sophie:
-  名前: 北条そふぃ
-  声優: 久保田未夢
-  学年: 中学2年生
-  チーム: SoLaMi SMILE
-  口癖: ぷしゅー
+  name: 北条そふぃ
+  cv: 久保田未夢
+  grade: 中学2年生
+  team: SoLaMi SMILE
+  fav_phrase: ぷしゅー
 
 shion:
-  名前: 東堂シオン
-  声優: 山北早紀
-  学年: 中学1年生
-  チーム: Dressing Pafé
-  口癖: いご
+  name: 東堂シオン
+  cv: 山北早紀
+  grade: 中学1年生
+  team: Dressing Pafé
+  fav_phrase: いご
 
 dorothy:
-  名前: ドロシー・ウェスト
-  声優: 澁谷梓希
-  学年: 中学1年生
-  チーム: Dressing Pafé
-  口癖: テンションマックス
+  name: ドロシー・ウェスト
+  cv: 澁谷梓希
+  grade: 中学1年生
+  team: Dressing Pafé
+  fav_phrase: テンションマックス
 
 leona:
-  名前: レオナ・ウェスト
-  声優: 若井友希
-  学年: 中学1年生
-  チーム: Dressing Pafé
-  口癖: ドロシーがそう言うなら
+  name: レオナ・ウェスト
+  cv: 若井友希
+  grade: 中学1年生
+  team: Dressing Pafé
+  fav_phrase: ドロシーがそう言うなら
