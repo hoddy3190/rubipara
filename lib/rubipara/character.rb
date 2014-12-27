@@ -1,35 +1,35 @@
 module Rubipara
   class Character
+    class NotFoundError < StandardError; end
 
-    @@config = nil
+    attr_reader :en_name, :name, :cv, :grade, :team, :fav_phrase
+
+    @@config = YAML.load_file("#{File.dirname(__FILE__)}/../../config/character.yml")
 
     class << self
 
-      def load_config
-        config_file = "#{File.dirname(__FILE__)}/../../config/character.yml"
-        @@config = YAML.load_file(config_file)
-      end
-
-      def profile(name)
-        load_config unless @@config
-        if @@config.has_key?(name)
-          profile = @@config[name]
-        else
-          raise 'ERROR: No such a character'
-        end
-      end
-
-      def list
-        load_config unless @@config
-        chara_name_list = []
-        @@config.each_key {|name| chara_name_list.push(name) }
-        chara_name_list
-      end
-
+      # return an array of character objects of all characters
       def all
-        load_config unless @@config
+        characters = []
+        @@config.each_key do |name|
+          characters.push(Character.new name)
+        end
+        characters
       end
 
+    end
+
+    def initialize(name)
+      if @@config.has_key?(name)
+        @en_name    = name # English first name
+        @name       = @@config[name]['name'] # Japanese full name
+        @cv         = @@config[name]['cv']
+        @grade      = @@config[name]['grade']
+        @team       = @@config[name]['team']
+        @fav_phrase = @@config[name]['fav_phrase']
+      else
+        raise NotFoundError.new('ERROR: No such a character')
+      end
     end
 
   end
