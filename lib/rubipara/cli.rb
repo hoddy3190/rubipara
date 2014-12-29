@@ -14,11 +14,11 @@ module Rubipara
     def character(name = nil)
       if name
         begin
-          character = Rubipara::Character.new(name.to_sym)
+          character = Rubipara::Character.new(name)
+          puts_character_profile character
         rescue Rubipara::Character::NotFoundError => e
           puts e.message
         end
-        puts_character_profile character
       else
         Rubipara::Character.all.each {|character| puts_character_name character }
       end
@@ -34,10 +34,10 @@ module Rubipara
       if episode_num
         begin
           episode = Rubipara::Episode.new(episode_num)
+          puts_episode_info episode
         rescue Rubipara::Episode::NotFoundError => e
           puts e.message
         end
-        puts_episode_info episode
       else
         Rubipara::Episode.all.each {|episode| puts_episode_info episode }
       end

@@ -10,11 +10,7 @@ module Rubipara
 
       # return an array of episode objects of all episodes
       def all
-        episodes = []
-        @@config.each_key do |episode_num|
-          episodes.push(Episode.new episode_num)
-        end
-        episodes
+        episodes = @@config.keys.map {|episode_num| Episode.new episode_num }
       end
 
     end

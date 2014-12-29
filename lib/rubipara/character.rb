@@ -10,11 +10,7 @@ module Rubipara
 
       # return an array of character objects of all characters
       def all
-        characters = []
-        @@config.each_key do |name|
-          characters.push(Character.new name)
-        end
-        characters
+        characters = @@config.keys.map {|name| Character.new name }
       end
 
     end
