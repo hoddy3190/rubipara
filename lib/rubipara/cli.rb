@@ -6,8 +6,7 @@ module Rubipara
     desc 'kashikoma [<word>]', "Let's say 'Kashikoma!' together! With an option <word>, Lala says the word!"
     def kashikoma(word = 'Kashikoma!')
       kashikoma = Rubipara::AA.new(:kashikoma, word: word)
-      aa = kashikoma.get_aa # return an array whose elements contain each line in AA
-      aa.each {|line| puts line }
+      puts_aa kashikoma
     end
 
     desc 'character [<name>]', "Show names of characters. With an option <name>, show the character's profile"
@@ -45,6 +44,16 @@ module Rubipara
 
     private
 
+    def puts_aa(aa)
+      aa.aa_lines.each do |line|
+        # substitute some words for #{word} in AA if necessary
+        if line.include?('#{word}') && aa.word
+          line.gsub!(/\#\{word\}/, adjust_word(aa.word, aa.max_length))
+        end
+        puts line
+      end
+    end
+
     def puts_character_profile(character)
       puts "\n"
       puts "#{character.name} プロフィール"
@@ -62,6 +71,14 @@ module Rubipara
 
     def puts_episode_info(episode)
       puts "第#{sprintf("%02d", episode.episode_num)}話\t#{episode.title}"
+    end
+
+    def adjust_word(word, max_length)
+      if (word.length > max_length)
+        word[0, max_length]
+      else
+        word.center(max_length, ' ')
+      end
     end
 
   end
