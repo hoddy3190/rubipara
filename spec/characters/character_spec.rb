@@ -8,14 +8,24 @@ describe Rubipara::Character do
     context 'when the arg is a name of an exising character' do
       it { expect(Rubipara::Character.new('lala').name).to eq('真中らぁら') }
     end
-    context 'with invalid args' do
+    context 'with invalid string args' do
       it 'should throw an exception of Rubipara::Character::NotFoundError' do
         expect{Rubipara::Character.new 'invalid'}.to raise_error(Rubipara::Character::NotFoundError, 'ERROR: No such a character')
       end
     end
-    context 'with no args' do
-      it 'should throw an exception of ArgumentError' do
-        expect{Rubipara::Character.new}.to raise_error(ArgumentError)
+    context 'with too big number args' do
+      it 'should throw an exception of Rubipara::Character::NotFoundError' do
+        expect{Rubipara::Character.new(9999999)}.to raise_error(Rubipara::Character::NotFoundError, 'ERROR: No such a character')
+      end
+    end
+    context 'with negative number args' do
+      it 'should throw an exception of Rubipara::Character::NotFoundError' do
+        expect{Rubipara::Character.new(-3)}.to raise_error(Rubipara::Character::NotFoundError, 'ERROR: No such a character')
+      end
+    end
+    context 'with number 0' do
+      it 'should throw an exception of Rubipara::Character::NotFoundError' do
+        expect{Rubipara::Character.new(0)}.to raise_error(Rubipara::Character::NotFoundError, 'ERROR: No such a character')
       end
     end
   end
