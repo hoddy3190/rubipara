@@ -1,5 +1,9 @@
-require "rubipara/version"
+require 'yaml'
+require 'rubipara/aa'
+require 'rubipara/character'
+require 'rubipara/episode'
+require 'rubipara/cli'
+require 'rubipara/version'
 
 module Rubipara
-  # Your code goes here...
 end
